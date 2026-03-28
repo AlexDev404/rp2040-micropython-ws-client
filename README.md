@@ -87,6 +87,15 @@ msg = ws.recv()
 
 `examples/soil_moisture_sensor.py` demonstrates a complete application:
 
+**Wiring**
+
+| Signal         | GPIO |
+|----------------|------|
+| Sensor ADC in  | 28   |
+| Sensor 3.3 V   | 15   |
+| ESP-01 TX      | 0    |
+| ESP-01 RX      | 1    |
+
 1. Connects to Wi-Fi via the ESP-01 AT interface.
 2. Posts an `ONLINE` status to an HTTP API. If the API key has expired it re-authenticates, persists the new token to `env.py`, and reboots.
 3. Opens a WebSocket to a streaming endpoint.
@@ -99,12 +108,3 @@ msg = ws.recv()
 wet_reading = 320    # ADC reading in saturated soil
 dry_reading = 24500  # ADC reading in completely dry soil
 ```
-
-**Wiring**
-
-| Signal         | GPIO |
-|----------------|------|
-| Sensor ADC in  | 28   |
-| Sensor 3.3 V   | 15   |
-| ESP-01 TX      | 0    |
-| ESP-01 RX      | 1    |
